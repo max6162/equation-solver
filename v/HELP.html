@@ -1,0 +1,457 @@
+﻿<!-- ================================================
+     СПРАВКА И ПРИМЕРЫ ДЛЯ РЕШАТЕЛЯ УРАВНЕНИЙ
+     ================================================ -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Справка - EquationSolver</title>
+<style>
+      :root {
+    --primary: #6366f1;
+            --secondary: #8b5cf6;
+  --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * {
+     margin: 0;
+  padding: 0;
+   box-sizing: border-box;
+        }
+
+   body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+   line-height: 1.6;
+    color: #333;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%);
+   padding: 20px;
+      }
+
+        .container {
+       max-width: 1000px;
+    margin: 0 auto;
+ background: white;
+      padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+        h1 {
+      color: var(--primary);
+   margin-bottom: 30px;
+         text-align: center;
+ font-size: 2.5rem;
+     }
+
+    h2 {
+ color: var(--primary);
+      margin-top: 40px;
+            margin-bottom: 20px;
+     border-bottom: 3px solid var(--primary);
+          padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--secondary);
+ margin-top: 20px;
+      margin-bottom: 12px;
+     }
+
+        .example {
+  background: #f9f9f9;
+border-left: 5px solid var(--primary);
+   padding: 20px;
+        margin: 20px 0;
+       border-radius: 8px;
+        }
+
+        .formula {
+   background: #f0f0f0;
+      padding: 20px;
+     border-radius: 8px;
+        font-family: 'Courier New', monospace;
+  margin: 20px 0;
+         overflow-x: auto;
+   border: 1px solid #e5e7eb;
+        }
+
+        .tips {
+       background: #fff3cd;
+        border-left: 5px solid #ffc107;
+       padding: 18px;
+margin: 20px 0;
+            border-radius: 8px;
+    }
+
+    .table {
+    width: 100%;
+         border-collapse: collapse;
+     margin: 20px 0;
+   }
+
+        .table th,
+        .table td {
+       border: 1px solid #ddd;
+    padding: 15px;
+       text-align: left;
+      }
+
+    .table th {
+  background: var(--primary);
+            color: white;
+         font-weight: bold;
+        }
+
+   .table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        code {
+      background: #f0f0f0;
+  padding: 4px 8px;
+            border-radius: 4px;
+font-family: 'Courier New', monospace;
+      }
+
+        .back-button {
+    display: inline-block;
+    background: var(--primary);
+      color: white;
+        padding: 12px 24px;
+border-radius: 6px;
+    text-decoration: none;
+  margin-bottom: 30px;
+ font-weight: 600;
+      transition: all 0.3s ease;
+     }
+
+        .back-button:hover {
+  background: var(--secondary);
+            transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        ul, ol {
+  margin-left: 30px;
+ margin-bottom: 15px;
+        }
+
+        li {
+    margin-bottom: 10px;
+     }
+
+        a {
+ color: var(--primary);
+      text-decoration: none;
+   font-weight: 500;
+  }
+
+     a:hover {
+      text-decoration: underline;
+        }
+
+     .footer {
+   margin-top: 50px;
+padding-top: 30px;
+        border-top: 2px solid #e5e7eb;
+ text-align: center;
+            color: #999;
+   font-size: 0.95em;
+    }
+
+        .feature-grid {
+     display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+margin: 20px 0;
+   }
+
+        .feature-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+   color: white;
+  padding: 20px;
+     border-radius: 8px;
+  text-align: center;
+        }
+
+  .feature-card h4 {
+   margin-bottom: 10px;
+ }
+
+   @media (max-width: 768px) {
+  .container {
+             padding: 20px;
+         }
+
+   h1 {
+  font-size: 1.8rem;
+         }
+
+        .table {
+  font-size: 0.9em;
+ }
+
+        .table th,
+       .table td {
+  padding: 10px;
+    }
+
+   ul, ol {
+      margin-left: 20px;
+ }
+    }
+    </style>
+</head>
+<body>
+  <div class="container">
+        <a href="index.html" class="back-button">← Вернуться к решателю</a>
+
+     <h1>Справка и примеры использования</h1>
+
+        <h2>Основные возможности</h2>
+
+ <div class="feature-grid">
+     <div class="feature-card">
+         <h4>Множество типов</h4>
+     <p>Квадратные, линейные, кубические, системы уравнений</p>
+        </div>
+          <div class="feature-card">
+      <h4>Интерактивные графики</h4>
+     <p>Визуализация с панорамированием и масштабированием</p>
+   </div>
+     <div class="feature-card">
+     <h4>Пошаговое решение</h4>
+                <p>Подробное объяснение каждого шага</p>
+ </div>
+            <div class="feature-card">
+     <h4>История решений</h4>
+                <p>Сохранение и организация всех решений</p>
+          </div>
+        </div>
+
+      <h2>Быстрый старт</h2>
+        <ol>
+            <li>Откройте <code>index.html</code> в браузере</li>
+            <li>Выберите тип уравнения</li>
+            <li>Введите коэффициенты или естественное выражение</li>
+    <li>Нажмите кнопку "Решить"</li>
+  <li>Просмотрите решение и график</li>
+      </ol>
+
+        <h2>Типы поддерживаемых уравнений</h2>
+
+        <h3>1. Квадратные уравнения</h3>
+        <p>Форма: <strong>ax² + bx + c = 0</strong> (где a ≠ 0)</p>
+ <div class="example">
+   <p><strong>Пример:</strong> <code>1x² - 5x + 6 = 0</code></p>
+            <p><strong>Корни:</strong> x₁ = 3, x₂ = 2</p>
+     </div>
+
+        <h3>2. Линейные уравнения</h3>
+<p>Форма: <strong>ax + b = 0</strong> (где a ≠ 0)</p>
+        <div class="example">
+      <p><strong>Пример:</strong> <code>2x - 4 = 0</code></p>
+     <p><strong>Корень:</strong> x = 2</p>
+        </div>
+
+        <h3>3. Кубические уравнения</h3>
+        <p>Форма: <strong>ax³ + bx² + cx + d = 0</strong> (где a ≠ 0)</p>
+
+        <h3>4. Биквадратные уравнения</h3>
+        <p>Форма: <strong>ax⁴ + bx² + c = 0</strong></p>
+
+        <h3>5. Системы линейных уравнений 2x2</h3>
+        <p>Форма:</p>
+        <div class="formula">
+a₁x + b₁y = c₁
+a₂x + b₂y = c₂
+        </div>
+
+        <h2>Форматы ввода</h2>
+      <table class="table">
+   <tr>
+      <th>Тип</th>
+        <th>Примеры</th>
+        <th>Описание</th>
+      </tr>
+   <tr>
+  <td>Целые числа</td>
+       <td><code>1</code>, <code>-5</code>, <code>0</code></td>
+   <td>Положительные и отрицательные целые числа</td>
+      </tr>
+     <tr>
+    <td>Десятичные</td>
+        <td><code>0.5</code>, <code>-1.25</code>, <code>3.14</code></td>
+        <td>Используйте точку, не запятую</td>
+    </tr>
+ <tr>
+       <td>Дроби</td>
+       <td><code>1/2</code>, <code>3/4</code>, <code>-2/3</code></td>
+  <td>Формат: числитель/знаменатель</td>
+           </tr>
+        </table>
+
+        <h2>Примеры решения</h2>
+
+<h3>Пример 1: Квадратное уравнение с двумя корнями</h3>
+        <div class="example">
+    <p><strong>Уравнение:</strong> x² - 5x + 6 = 0</p>
+     <p><strong>Коэффициенты:</strong> a = 1, b = -5, c = 6</p>
+   <p><strong>Решение:</strong></p>
+<div class="formula">
+D = b² - 4ac = 25 - 24 = 1
+
+x = (-b ± √D) / (2a)
+x = (5 ± 1) / 2
+
+x₁ = 3
+x₂ = 2
+  </div>
+        </div>
+
+        <h3>Пример 2: Квадратное уравнение с комплексными корнями</h3>
+        <div class="example">
+      <p><strong>Уравнение:</strong> x² + 2x + 5 = 0</p>
+         <p><strong>Коэффициенты:</strong> a = 1, b = 2, c = 5</p>
+     <p><strong>Решение:</strong></p>
+     <div class="formula">
+D = 4 - 20 = -16 < 0
+
+Уравнение имеет комплексные корни:
+x₁ = -1 + 2i
+x₂ = -1 - 2i
+            </div>
+   </div>
+
+   <h3>Пример 3: Линейное уравнение</h3>
+   <div class="example">
+         <p><strong>Уравнение:</strong> 3x - 9 = 0</p>
+            <p><strong>Решение:</strong></p>
+      <div class="formula">
+3x = 9
+x = 3
+            </div>
+        </div>
+
+      <h3>Пример 4: Система уравнений 2x2</h3>
+        <div class="example">
+  <p><strong>Система:</strong></p>
+  <div class="formula">
+2x + 3y = 8
+x - y = 1
+            </div>
+        <p><strong>Решение:</strong> x = 2.2, y = 1.2</p>
+        </div>
+
+        <h2>Интерпретация дискриминанта</h2>
+        <table class="table">
+       <tr>
+        <th>Условие</th>
+           <th>Значение D</th>
+      <th>Количество корней</th>
+  <th>Тип корней</th>
+         </tr>
+         <tr>
+    <td>D > 0</td>
+      <td>Положительное</td>
+           <td>2 корня</td>
+      <td>Различные действительные</td>
+    </tr>
+       <tr>
+         <td>D = 0</td>
+        <td>Ноль</td>
+            <td>1 корень</td>
+      <td>Кратный действительный</td>
+ </tr>
+      <tr>
+       <td>D < 0</td>
+   <td>Отрицательное</td>
+           <td>2 корня</td>
+      <td>Комплексные сопряжённые</td>
+  </tr>
+   </table>
+
+   <h2>Основные формулы</h2>
+
+    <h3>Дискриминант</h3>
+ <div class="formula">
+D = b² - 4ac
+   </div>
+
+        <h3>Формула корней квадратного уравнения</h3>
+        <div class="formula">
+x = (-b ± √D) / (2a)
+        </div>
+
+        <h3>Теорема Виета</h3>
+        <div class="formula">
+Если x₁ и x₂ - корни уравнения ax² + bx + c = 0, то:
+x₁ + x₂ = -b/a
+x₁ · x₂ = c/a
+        </div>
+
+     <h2>Полезные советы</h2>
+
+        <div class="tips">Для квадратного уравнения коэффициент a должен быть ненулевым (a ≠ 0)</div>
+
+        <div class="tips">Используйте точку (.) для десятичных чисел, не запятую</div>
+
+        <div class="tips">Для дробей используйте формат числитель/знаменатель без пробелов</div>
+
+    <div class="tips">Нажмите на примеры уравнений для быстрой загрузки</div>
+
+        <div class="tips">История решений сохраняется автоматически в памяти браузера</div>
+
+        <div class="tips">Кнопка "Генерировать" создаёт случайные уравнения для практики</div>
+
+        <div class="tips">Графики интерактивны - перетащите для панорамирования, прокрутите для масштабирования</div>
+
+        <div class="tips">Решение можно скопировать или экспортировать после получения результата</div>
+
+        <h2>Часто задаваемые вопросы</h2>
+
+        <h3>Где хранится история решений?</h3>
+   <p><strong>Ответ:</strong> История сохраняется в localStorage браузера. Она будет доступна, пока вы не очистите данные браузера. Максимально хранится 50 последних решений.</p>
+
+        <h3>Как скачать решение?</h3>
+  <p><strong>Ответ:</strong> После получения результата нажмите кнопку "PDF/Текст" для загрузки решения как текстового файла.</p>
+
+        <h3>Работает ли без интернета?</h3>
+        <p><strong>Ответ:</strong> Да! Это полностью локальное приложение. Всё работает оффлайн после загрузки страницы.</p>
+
+        <h3>Могу ли я использовать очень большие числа?</h3>
+        <p><strong>Ответ:</strong> Да, но результаты будут округлены до 6 знаков после запятой для удобства чтения.</p>
+
+        <h3>Как поделиться решением?</h3>
+    <p><strong>Ответ:</strong> Нажмите кнопку "Поделиться" и скопируйте ссылку или поделитесь в социальных сетях.</p>
+
+        <h3>Поддерживаются ли иррациональные коэффициенты?</h3>
+        <p><strong>Ответ:</strong> Введите десятичное приближение числа. Например, вместо √2 используйте 1.414</p>
+
+        <h2>Требования к браузеру</h2>
+   <ul>
+    <li>Chrome/Chromium 90+</li>
+      <li>Firefox 88+</li>
+   <li>Safari 14+</li>
+          <li>Edge 90+</li>
+   <li>Мобильные браузеры (iOS Safari, Chrome Android)</li>
+ </ul>
+
+        <h2>Работа на мобильных устройствах</h2>
+    <p>Приложение полностью адаптивно и работает на смартфонах и планшетах:</p>
+      <ul>
+     <li>Удобные сенсорные кнопки</li>
+  <li>Оптимизированный интерфейс для малых экранов</li>
+         <li>Полный функционал как на десктопе</li>
+   </ul>
+
+        <div class="footer">
+       <p>Справка для EquationSolver © 2024 | Универсальный Решатель Уравнений</p>
+    <p><a href="index.html">← Вернуться к решателю</a></p>
+        </div>
+    </div>
+</body>
+</html>
